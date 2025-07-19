@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./componentes/Header";
+import './App.css'
+import { Main } from "./componentes/Main";
+import React, {useEffect, useState} from "react";
+import loadingImg from './assets/loading.gif'
 
 function App() {
+  const [info, setInfo] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  useEffect(()=>{
+    console.log(info);
+    setLoading(false)
+  },[info])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header setInfo={setInfo} setLoading={setLoading}/>
+      {info && info.main?(
+        <Main 
+      name={info.name?info.name:''}
+      temp={info.main.temp?info.main.temp:''}
+      pressao={info.main.pressure?info.main.pressure:''}
+      sensacao={info.main.feels_like?info.main.feels_like:''}
+      umidade={info.main.humidity?info.main.humidity:''}
+      />
+      ):(
+        ''
+      )}
+      {loading? (
+        <img src={loadingImg} />
+      ):('')}
     </div>
   );
 }
