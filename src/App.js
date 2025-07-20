@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Header setInfo={setInfo} setLoading={setLoading}/>
       {loading ? (
-        <img src={loadingImg} alt="Carregando..." />
+        <img src={loadingImg} alt="Carregando..." className="loading"/>
       ) : (
         info && info.main ? (
           <Main 
@@ -25,6 +25,11 @@ function App() {
             pressao={info.main.pressure || ''}
             sensacao={info.main.feels_like || ''}
             umidade={info.main.humidity || ''}
+            description={info.weather[0].description || ''}
+            main={info.weather[0].main || ''}
+            dt={info.dt || ''}               
+            sunrise={info.sys.sunrise || ''} 
+            sunset={info.sys.sunset || ''}   
           />
         ) : (
           '' 

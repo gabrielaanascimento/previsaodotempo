@@ -44,14 +44,40 @@
 .info {
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 100%;
 }
 
 .info p {
     text-align: center;
     font-size: 20px;
     font-weight: 700;
+    text-wrap: wrap;
 }
 .info p span {
     font-weight: 800;
+}
+
+.description {
+    margin-top: -2rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: rgb(74, 74, 74);
+}
+
+@media (max-width: 600px) {
+.info p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.temp p {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.main h2 {
+    font-size: 20px;
+}
+
 }
