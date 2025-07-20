@@ -8,22 +8,34 @@ export const Header = ({setInfo, setLoading}) => {
 
 
   const handleInput = async () => {
+    if (input.trim() === '') {
+      setInfo(null);
+      return;
+    }
+
+    setLoading(true);
+
     try {
-      if(input !== '') {
-        const response = await api(input)
-        setLoading(true)
-        setInfo(response.data)
+      const weatherData = await api(input);
+      
+      if (weatherData) {
+        setInfo(weatherData);
+      } else {
+        setInfo(null);
       }
 
     } catch (error) {
-      console.log(error);
-      
+      console.error("Erro inesperado na busca da API:", error);
+      setInfo(null);
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <div className='containerHeader'>
         <h1>Previsão do Tempo</h1>
+        
         <div className='input'>
             <input 
             type='text'
