@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import './styles.css'
-import { api } from '../../services/api'
+import { api, apiForecast } from '../../services/api'
 
-export const Header = ({setInfo, setLoading}) => {
+export const Header = ({setInfo, setLoading, setForecast}) => {
 
   const [input, setInput] = useState('')
 
@@ -17,9 +17,12 @@ export const Header = ({setInfo, setLoading}) => {
 
     try {
       const weatherData = await api(input);
+      const weatherDataForecast = await apiForecast(input);
       
-      if (weatherData) {
+      
+      if (weatherData && weatherDataForecast) {
         setInfo(weatherData);
+        setForecast(weatherDataForecast)
       } else {
         setInfo(null);
       }
