@@ -22,14 +22,11 @@ function App() {
           <Main 
             name={info.name || ''}
             temp={info.main.temp || ''}
-            pressao={info.main.pressure || ''}
+            vento={info.wind.speed || ''}
             sensacao={info.main.feels_like || ''}
             umidade={info.main.humidity || ''}
             description={info.weather[0].description || ''}
-            main={info.weather[0].main || ''}
-            dt={info.dt || ''}               
-            sunrise={info.sys.sunrise || ''} 
-            sunset={info.sys.sunset || ''}   
+            icon={info.weather[0].icon || ''}  
           />
         ) : (
           '' 
