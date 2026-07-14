@@ -24,8 +24,22 @@ Para rodar este projeto localmente, você vai precisar do **[Node.js](https://no
 
 1. Clone o repositório para a sua máquina:
    ```bash
-   git clone <URL_DO_SEU_REPOSITORIO>
+   git clone https://github.com/gabrielaanascimento/previsaodotempo.git
    cd previsaodotempo
    npm install
    npm start
+   ```
+## 🧪 Scripts Disponíveis
+No diretório raiz, você pode executar os seguintes comandos nativos do projeto:
+
+npm start: Inicia o aplicativo em modo de desenvolvimento.
+
+npm test: Executa os testes unitários configurados via Jest/Testing Library.
+
+npm run build: Compila o aplicativo para produção na pasta build, otimizando os arquivos para melhor performance e minificação.
+
+npm run eject: Remove a dependência de build única do Create React App, copiando todos os arquivos de configuração para o projeto (Ação irreversível).
+
+## ✒️ Autor
+Projeto criado e desenvolvido por Gabriel Augusto.
    
